@@ -16,7 +16,7 @@ describe Matrixi do
   it "Define an attack" do
     matrix = Matrixi.new(3)
     expect(matrix.check_blank).to equal(9)
-    matrix[1][1] = 1
+    matrix.set_value(1,1,1)
     expect(matrix.check_navies).to equal(1)
     expect(matrix.check_blank).to equal(8)
 
@@ -25,6 +25,23 @@ describe Matrixi do
     expect(matrix.check_blank).to equal(7)
     expect(matrix.check_navies_destroyed).to equal(0)
     expect(matrix.check_blank_used).to equal(1)
-  end
 
+    matrix.attacked(0, 1)
+    matrix.attacked(0, 2)
+    matrix.attacked(1, 0)
+    matrix.attacked(1, 2)
+    matrix.attacked(2, 0)
+    matrix.attacked(2, 1)
+    matrix.attacked(2, 2)
+
+    expect(matrix.check_navies).to equal(1)
+    expect(matrix.check_blank).to equal(0)
+    expect(matrix.check_navies_destroyed).to equal(0)
+    expect(matrix.check_blank_used).to equal(8)
+    expect(matrix.lost?).to equal(false)
+
+    matrix.attacked(1, 1)
+
+    expect(matrix.lost?).to equal(true)
+  end
 end

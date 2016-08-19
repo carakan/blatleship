@@ -10,6 +10,10 @@ class Matrixi
     end
   end
 
+  def set_value(x, y, value)
+    @matrix[x][y] = value
+  end
+
   def fill_with_navies()
     points = @navies
     size = @matrix.size - 1
@@ -60,5 +64,9 @@ class Matrixi
     end
   rescue
     return false
+  end
+
+  def lost?
+    self.check_navies <= 0
   end
 end
