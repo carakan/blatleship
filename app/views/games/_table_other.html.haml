@@ -1,5 +1,5 @@
-.table
-  - table.each do |cols|
-    - cols.each do |elem|
-      .elem.elem_2{class: "filled_#{elem}"}
+.table{class: "disabled_#{disabled}"}
+  - table.each_with_index do |cols, x|
+    - cols.each_with_index do |elem, y|
+      .elem.elem_2{class: "filled_#{elem}", data: {cords: "#{params[:id]}?cords=#{x},#{y}"}}
 
