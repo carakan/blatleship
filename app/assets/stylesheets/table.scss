@@ -24,8 +24,14 @@
     }
     &.elem_2{
       background-color: #F9F7DB;
+      &:hover{
+        background-color: #FCE4B8;
+      }
       &.filled_3{
         background-color: #F9CFCF;
+      }
+      &.filled_2{
+        background-color: #D3E2E5;
       }
     }
   }
