@@ -21,13 +21,13 @@ class Game
   def play(user = 1, x, y)
     if user == 1 && turn_of_1?
       @player_2.attacked(x, y)
-      @turn_1 = 1
-      @turn_2 = 0
+      @turn_1 = false
+      @turn_2 = true
       return @player_2.lost?
     elsif user == 2 && turn_of_2?
       @player_1.attacked(x, y)
-      @turn_1 = 0
-      @turn_2 = 1
+      @turn_1 = true
+      @turn_2 = false
       return @player_1.lost?
     end
     return false

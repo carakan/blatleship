@@ -1,0 +1,32 @@
+.table{
+  width: 440px;
+  margin: 50px 100px;
+  display: inline-block;
+  .elem{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    &.elem_1{
+      &.filled_1 {
+        background-color: #4F8AFF;
+      }
+      &.filled_0{
+        background-color: #FFFAAE;
+      }
+      &.filled_3{
+        background-color: #FF5454;
+      }
+      &.filled_2{
+        background-color: #DDDDDD;
+      }
+    }
+    &.elem_2{
+      background-color: #F9F7DB;
+      &.filled_3{
+        background-color: #F9CFCF;
+      }
+    }
+  }
+}

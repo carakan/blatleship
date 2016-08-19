@@ -1,4 +1,6 @@
 class Matrixi
+  attr_accessor :matrix
+
   def initialize(size = 10, number_of_navies = 20)
     @matrix = Array.new(size) { Array.new(size) }
 

@@ -1,0 +1,9 @@
+%h2 player #{params[:id]}
+
+- if params[:id].to_i == 1
+  = render "table", table: GameSingleton.instance.game.player_1.matrix
+  = render "table_other", table: GameSingleton.instance.game.player_2.matrix
+
+- if params[:id].to_i == 2
+  = render "table", table: GameSingleton.instance.game.player_2.matrix
+  = render "table_other", table: GameSingleton.instance.game.player_1.matrix
