@@ -1,4 +1,9 @@
-%h2 player #{params[:id]}
+%h2 player #{params[:id]} 
+- if params[:id].to_i == 2 && GameSingleton.instance.game.turn_of_2? ||
+  - params[:id].to_i == 1 && GameSingleton.instance.game.turn_of_1?
+  %h3 Is your turn!
+- else
+  %h3 Please wait 
 
 - if params[:id].to_i == 1
   = render "table", table: GameSingleton.instance.game.player_1.matrix
