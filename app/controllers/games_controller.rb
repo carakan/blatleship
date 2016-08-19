@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
   def index
-
+    GameSingleton.instance.game = Game.new
+    redirect_to :back
   end
 
   def show

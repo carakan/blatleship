@@ -1,4 +1,11 @@
-%h2 player #{params[:id]} 
+%h2 player #{params[:id]}
+- if params[:id].to_i == 1 && GameSingleton.instance.game.player_1_won? ||
+  - params[:id].to_i == 2 && GameSingleton.instance.game.player_2_won?
+  %h1 you WON!!!
+- if params[:id].to_i == 2 && GameSingleton.instance.game.player_1_won? ||
+  - params[:id].to_i == 1 && GameSingleton.instance.game.player_2_won?
+  %h1 you LOST!!!
+
 - if params[:id].to_i == 2 && GameSingleton.instance.game.turn_of_2? ||
   - params[:id].to_i == 1 && GameSingleton.instance.game.turn_of_1?
   %h3 Is your turn!
@@ -14,3 +21,6 @@
   = render "table", table: GameSingleton.instance.game.player_2.matrix
   = render "table_other", table: GameSingleton.instance.game.player_1.matrix,
                           disabled: GameSingleton.instance.game.turn_of_1?
+
+%p
+  = link_to 'reset play', games_path, class: "btn btn-cancel"
